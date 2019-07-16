@@ -1,0 +1,13 @@
+Syntax:
+	if e1 then e2 else e3;
+	where if, then, and else are keywords and e1, e2, and e3 are subexpressions.
+
+Type-checking:
+	1. e1 must have type bool.
+	2. e2 and e3 must have the same type (t), whatever that type is.
+	The type of the entire expression is t.
+
+Evaluation:
+	1. Evaluate e1 to a value (since it already type-checked to a bool, it will either be true or false).
+	2. If e1 evaluates to true, evaluate e2. Otherwise, evaluate e3.
+	3. Value obtained from step 2 is the whole expression's value.

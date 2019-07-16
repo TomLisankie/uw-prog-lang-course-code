@@ -1,0 +1,8 @@
+Syntax:
+	e1 < e2 where e1 is an expression and e2 is an expression.
+
+Type-checking:
+	e1 and e2 must be of the same type and must have some rules for comparisons.
+
+Evaluation:
+	if e1 is less than e2 (according to the comparison rules for the type, return true. Otherwise, return false.
