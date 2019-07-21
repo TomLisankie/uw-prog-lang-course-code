@@ -1,3 +1,4 @@
+(* 1 *)
 fun alternate (xs : int list) =
     let
 	fun negate (x : int) = ~x;
@@ -15,4 +16,33 @@ fun alternate (xs : int list) =
 	    else (hd xs) + (sum_list (tl xs));
     in
 	sum_list (alternate_signs (xs, false))
+    end;
+
+(* 2 *)
+fun min_max (xs : int list) =
+    let
+	fun min (xs : int list) =
+	    if null (tl xs)
+	    then (hd xs)
+	    else
+		let
+		    val minimum = min (tl xs)
+		in
+		    if (hd xs) < minimum
+		    then (hd xs)
+		    else minimum
+		end
+	fun max (xs : int list) =
+	    if null (tl xs)
+	    then (hd xs)
+	    else
+		let
+		    val maximum = max (tl xs)
+		in
+		    if (hd xs) > maximum
+		    then (hd xs)
+		    else maximum
+		end
+    in
+	(min xs, max xs)
     end;
