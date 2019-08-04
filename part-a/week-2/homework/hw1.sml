@@ -42,3 +42,19 @@ fun number_in_month (dates : (int * int * int) list, month : int) =
     in
 	count_months (dates, month, 0)
     end;
+
+
+fun number_in_months (dates : (int * int * int) list, months : int list) =
+    let
+	fun count_all_months (months : int list, total : int) =
+	    if null months then
+		total
+	    else
+		let
+		    val month = (hd months)
+		in
+		    count_all_months ((tl months), total + number_in_month (dates, month))
+		end;
+    in
+	count_all_months (months, 0)
+    end;
