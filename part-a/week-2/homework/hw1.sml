@@ -92,3 +92,9 @@ fun dates_in_months (dates : (int * int * int) list, months : int list) =
     in
 	make_date_list (months, [])
     end;
+
+fun get_nth (items : string list, n : int) =
+    if n = 1 then
+	(hd items)
+    else
+	get_nth ((tl items), n - 1);
