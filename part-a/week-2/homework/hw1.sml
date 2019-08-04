@@ -111,3 +111,20 @@ fun date_to_string (date : (int * int * int)) =
     in
 	get_nth (month_strings, (#2 date)) ^ " " ^ Int.toString (#3 date) ^ ", " ^ Int.toString (#1 date)
     end;
+
+(* 8 *)
+fun number_before_reaching_sum (sum : int, xs : int list) =
+    let
+	fun adding (current_sum : int, items : int list, prev_num : int) =
+	    let
+		val num_to_add = (hd items)
+		val next_sum = current_sum + num_to_add
+	    in
+		if next_sum >= sum then
+		    prev_num
+		else
+		    adding (next_sum, (tl items), num_to_add)
+	    end
+    in
+	adding (0, xs, 0)
+    end;
