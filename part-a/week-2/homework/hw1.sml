@@ -27,7 +27,7 @@ fun is_older (date1 : int*int*int, date2 : int*int*int) =
 
 fun number_in_month (dates : (int * int * int) list, month : int) =
     let
-	fun count_months (dates : (int * int * int) list, month : int, count : int) =
+	fun count_months (dates : (int * int * int) list, count : int) =
 	    if null dates then
 		count
 	    else
@@ -35,12 +35,12 @@ fun number_in_month (dates : (int * int * int) list, month : int) =
 		    val current_month = (#2 (hd dates))
 		in
 		    if current_month = month then
-			count_months ((tl dates), month, count + 1)
+			count_months ((tl dates), count + 1)
 		    else
-			count_months ((tl dates), month, count)
+			count_months ((tl dates), count)
 		end;
     in
-	count_months (dates, month, 0)
+	count_months (dates, 0)
     end;
 
 
