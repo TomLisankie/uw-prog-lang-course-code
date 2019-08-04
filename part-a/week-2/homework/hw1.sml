@@ -1,3 +1,4 @@
+(* 1 *)
 fun is_older (date1 : int*int*int, date2 : int*int*int) =
     let
 	val year1 = (#1 date1)
@@ -25,6 +26,7 @@ fun is_older (date1 : int*int*int, date2 : int*int*int) =
 			    false
     end;
 
+(* 2 *)
 fun number_in_month (dates : (int * int * int) list, month : int) =
     let
 	fun count_months (dates : (int * int * int) list, count : int) =
@@ -43,7 +45,7 @@ fun number_in_month (dates : (int * int * int) list, month : int) =
 	count_months (dates, 0)
     end;
 
-
+(* 3 *)
 fun number_in_months (dates : (int * int * int) list, months : int list) =
     let
 	fun count_all_months (months : int list, total : int) =
@@ -59,6 +61,7 @@ fun number_in_months (dates : (int * int * int) list, months : int list) =
 	count_all_months (months, 0)
     end;
 
+(* 4 *)
 fun dates_in_month (dates : (int * int * int) list, month : int) =
     let
 	fun make_date_list (dates : (int * int * int) list, filtered_dates : (int * int * int) list) =
@@ -78,6 +81,7 @@ fun dates_in_month (dates : (int * int * int) list, month : int) =
 	make_date_list (dates, [])
     end;
 
+(* 5 *)
 fun dates_in_months (dates : (int * int * int) list, months : int list) =
     let
 	fun make_date_list (months : int list, filtered_dates : (int * int * int) list) =
@@ -93,6 +97,7 @@ fun dates_in_months (dates : (int * int * int) list, months : int list) =
 	make_date_list (months, [])
     end;
 
+(* 6 *)
 fun get_nth (items : string list, n : int) =
     if n = 1 then
 	(hd items)
