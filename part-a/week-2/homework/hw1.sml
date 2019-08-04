@@ -58,3 +58,37 @@ fun number_in_months (dates : (int * int * int) list, months : int list) =
     in
 	count_all_months (months, 0)
     end;
+
+fun dates_in_month (dates : (int * int * int) list, month : int) =
+    let
+	fun make_date_list (dates : (int * int * int) list, filtered_dates : (int * int * int) list) =
+	    if null dates then
+		filtered_dates
+	    else
+		let
+		    val current_date = (hd dates)
+		    val current_month = (#2 current_date)
+		in
+		    if current_month = month then
+			make_date_list ((tl dates), current_date :: filtered_dates)
+		    else
+			make_date_list ((tl dates), filtered_dates)
+		end;
+    in
+	make_date_list (dates, [])
+    end;
+
+fun dates_in_months (dates : (int * int * int) list, months : int list) =
+    let
+	fun make_date_list (months : int list, filtered_dates : (int * int * int) list) =
+	    if null months then
+		filtered_dates
+	    else
+		let
+		    val current_month = (hd months)
+		in
+		    make_date_list ((tl months), filtered_dates @ dates_in_month (dates, current_month))
+		end;
+    in
+	make_date_list (months, [])
+    end;
