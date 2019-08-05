@@ -136,6 +136,7 @@ fun what_month (day : int) =
     else
 	let
 	    val month_day_counts = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	    (* Could not figure out for the life of me how to properly use the function developed in problem 8 for this problem *)
 	    fun find_month_num (sum : int, month : int, days_in_months : int list) =
 		if sum >= day then
 		    month
