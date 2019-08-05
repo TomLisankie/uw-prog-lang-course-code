@@ -128,3 +128,40 @@ fun number_before_reaching_sum (sum : int, xs : int list) =
     in
 	adding (0, xs, 0)
     end;
+
+(* 9 *)
+(*fun what_month (day : int) =
+    if day > 365 orelse day < 1 then
+	0
+    else
+	let
+	    val month_day_counts = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	in
+	    fun count (month_num : int) =
+		
+	end; *)
+
+(* 11 *)
+fun oldest (dates : (int * int * int) list) =
+    if null dates then
+	NONE
+    else	
+	let
+	    fun find_oldest (current_oldest : (int * int * int), dates_being_examined : (int * int * int) list) =
+		if null dates_being_examined then
+		    SOME current_oldest
+		else
+		    let
+			val examine = (hd dates_being_examined)
+		    in
+			if null dates_being_examined then
+			    SOME current_oldest
+			else
+			    if is_older (examine, current_oldest) then
+				find_oldest (examine, (tl dates_being_examined))
+			    else
+				find_oldest(current_oldest, (tl dates_being_examined))
+		    end
+	in
+	    find_oldest((hd dates), dates)
+	end;
