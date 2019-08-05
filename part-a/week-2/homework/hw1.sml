@@ -145,6 +145,21 @@ fun what_month (day : int) =
 	    find_month_num (0, 0, month_day_counts)
 	end;
 
+(* 10 *)
+fun month_range (day1 : int, day2 : int) =
+    if day1 > day2 then
+	[]
+    else
+	let
+	    fun make_month_list (current_day : int, month_list : int list) =
+		if current_day = (day2 + 1) then
+		    month_list
+		else
+		    month_list @ make_month_list (current_day + 1, [what_month (current_day)])
+	in
+	    make_month_list (day1, [])
+	end;
+
 (* 11 *)
 fun oldest (dates : (int * int * int) list) =
     if null dates then
